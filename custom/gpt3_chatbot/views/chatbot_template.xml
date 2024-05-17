@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="chatbot_template">
+        <!--
+        (Contenu complet du modèle HTML du chatbot, voir étape 11 dans les réponses
+        précédentes) -->
+    </template>
+</odoo>

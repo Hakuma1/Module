@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <!--Sequence for deadline.declartion-->
+        <record id="seq_deadline_declaration_field_name" model="ir.sequence">
+            <field name="name">Deadline declaration sequence</field>
+            <field name="code">deadline.declaration.increment</field>
+            <field name="prefix">DP</field>
+            <field name="padding">4</field>
+            <field name="number_next" eval="1"/>
+            <field name="number_increment" eval="1"/>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

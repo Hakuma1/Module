@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="calendar_portal" name="Calendar Portal Page">
+        <xpath expr="//div[@class='o_portal_my_documents']" position="after">
+            <div class="o_portal_my_calendars">
+                <t t-call="kzm_instance_creation_portal.calendar_template"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>

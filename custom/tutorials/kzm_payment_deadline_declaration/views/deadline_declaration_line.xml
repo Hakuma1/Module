@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="deadline_declaration_line_form_view">
+            <field name="name">Deadline declaration line</field>
+            <field name="model">deadline.declaration.line</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header/>
+                    <sheet>
+                        <group col="3">
+                            <group>
+                                <field name="invoice_id" optional="show"/>
+                                <field name="partner_id" optional="show"/>
+                                <field name="IF" optional="show"/>
+                                <field name="rc" optional="show"/>
+                                <field name="contact_address" optional="show"/>
+                            </group>
+                            <group>
+                                <field name="invoice_number" optional="show"/>
+                                <field name="release_date" optional="show"/>
+                                <field name="merchandise_type_id" optional="show"/>
+                                <field name="delivery_date" optional="show"/>
+                                <field name="transaction_month" optional="show"/>
+                            </group>
+                            <group>
+                                <field name="transaction_year" optional="show"/>
+                                <field name="ascertainment_date" optional="show"/>
+                                <field name="expected_payment_date" optional="show"/>
+                                <field name="agreed_payment_date" optional="show"/>
+                                <field name="expected_invoice_payment_deadline" optional="show"/>
+                            </group>
+                        </group>
+                        <group col="3">
+                            <group>
+                                <field name="expected_invoice_payment_date" optional="show"/>
+                                <field name="invoice_amount" optional="show"/>
+                                <field name="amount_residual" optional="show"/>
+                                <field name="payed_amount_out_deadline" optional="show"/>
+                                <field name="payment_date_out_deadline" optional="show"/>
+                            </group>
+                            <group>
+                                <field name="amount_justice" optional="show"/>
+                                <field name="legal_appeal_date" optional="show"/>
+                                <field name="amount_residual_after_jugdment" optional="show"/>
+                                <field name="final_judgment_date" optional="show"/>
+                                <field name="payment_mode" optional="show"/>
+                            </group>
+                            <group>
+                                <field name="payment_ref" optional="show"/>
+                                <field name="declaration_id" optional="show"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="deadline_declaration_line_list_view">
+            <field name="name">Deadline declaration line</field>
+            <field name="model">deadline.declaration.line</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="invoice_id" optional="show"/>
+                    <field name="partner_id" optional="show"/>
+                    <field name="IF" optional="show"/>
+                    <field name="rc" optional="show"/>
+                    <field name="contact_address" optional="show"/>
+                    <field name="invoice_number" optional="show"/>
+                    <field name="release_date" optional="show"/>
+                    <field name="merchandise_type_id" optional="hide"/>
+                    <field name="delivery_date" optional="hide"/>
+                    <field name="transaction_month" optional="hide"/>
+                    <field name="transaction_year" optional="hide"/>
+                    <field name="ascertainment_date" optional="hide"/>
+                    <field name="expected_payment_date" optional="hide"/>
+                    <field name="agreed_payment_date" optional="hide"/>
+                    <field name="expected_invoice_payment_deadline" optional="hide"/>
+                    <field name="expected_invoice_payment_date" optional="hide"/>
+                    <field name="invoice_amount" optional="hide"/>
+                    <field name="amount_residual" optional="hide"/>
+                    <field name="payed_amount_out_deadline" optional="hide"/>
+                    <field name="payment_date_out_deadline" optional="hide"/>
+                    <field name="amount_justice" optional="hide"/>
+                    <field name="legal_appeal_date" optional="hide"/>
+                    <field name="amount_residual_after_jugdment" optional="hide"/>
+                    <field name="final_judgment_date" optional="hide"/>
+                    <field name="payment_mode" optional="hide"/>
+                    <field name="payment_ref" optional="hide"/>
+                    <field name="declaration_id" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

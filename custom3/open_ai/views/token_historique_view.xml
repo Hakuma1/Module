@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="token_historique_list_view">
+            <field name="name">List</field>
+            <field name="model">token.historique</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="answer"/>
+                    <field name="question"/>
+                    <field name="prompt_tokens"/>
+                    <field name="total_tokens"/>
+                    <field name="montant_total"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="token_historique_form_view">
+            <field name="name">Form</field>
+            <field name="model">token.historique</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="prompt_tokens"/>
+                            <field name="total_tokens"/>
+                            <field name="montant_total"/>
+                        </group>
+                        <group>
+                            <field name="answer"/>
+                            <field name="question"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="token_historique_action_window">
+            <field name="name">Historique</field>
+            <field name="res_model">token.historique</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Conversation History" id="token_historique_menu" parent="token_info_root_menu" action="token_historique_action_window"/>
+    </data>
+</odoo>

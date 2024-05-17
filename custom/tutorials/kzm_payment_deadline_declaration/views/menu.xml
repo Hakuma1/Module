@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <menuitem name="Declaration deadlines" id="declaration_deadlines_menu" parent="account.menu_finance_entries"/>
+        <menuitem name="Declaration Payment deadlines" id="declaration_payment_deadlines_menu" parent="kzm_payment_deadline_declaration.declaration_deadlines_menu"
+                  action="kzm_payment_deadline_declaration.deadline_declaration_action_window"/>
+    </data>
+</odoo>

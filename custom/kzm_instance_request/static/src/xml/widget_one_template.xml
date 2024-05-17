@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="kzm_instance_request.WidgetOne" owl="1">
+        <t t-if="props.readonly">
+            <pre t-esc="props.value" class="bg-primary text-white p-3 rounded"/>
+        </t>
+        <t t-else="">
+            <textarea class="o_codeview" t-att-value="props.value"/>
+        </t>
+    </t>
+</templates>

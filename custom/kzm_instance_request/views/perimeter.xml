@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <!-- List view -->
+        <record model="ir.ui.view" id="perimeter_list_view">
+            <field name="name">Perimeter list</field>
+            <field name="model">perimeter</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Menu Action -->
+        <record model="ir.actions.act_window" id="perimeter_action_window">
+            <field name="name">Perimeter window</field>
+            <field name="res_model">perimeter</field>
+            <field name="view_mode">tree,kanban</field>
+        </record>
+
+        <!-- Menu -->
+        <menuitem name="Perimeters" id="perimeter_list" parent="kzm_instance_request.kzm_instance_configuration"
+                  action="kzm_instance_request.perimeter_action_window"/>
+    </data>
+</odoo>

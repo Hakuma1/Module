@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Activity -->
+    <record id="mail_activity_instance" model="mail.activity.type">
+        <field name="name">To processed</field>
+        <field name="res_model">kzm.instance.request</field>
+    </record>
+</odoo>

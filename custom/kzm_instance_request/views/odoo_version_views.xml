@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="odoo_version_list_view">
+            <field name="name">List</field>
+            <field name="model">odoo.version</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="create_date"/>
+                    <field name="create_uid"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- explicit search view definition -->
+
+        <record model="ir.ui.view" id="odoo_version_search_view">
+            <field name="name">search</field>
+            <field name="model">odoo.version</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="create_uid"/>
+                    <field name="create_date"/>
+                </search>
+            </field>
+        </record>
+
+
+        <!-- explicit form view definition -->
+
+        <record model="ir.ui.view" id="odoo_version_form_view">
+            <field name="name">Request</field>
+            <field name="model">odoo.version</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="test_ajout" string="Test ajout" type="object" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description" widget="widget_one"/>
+                        </group>
+
+                        <notebook>
+                            <page string="Instances">
+                                <field name="instance_ids">
+                                    <tree editable="bottom">
+                                        <field name="partner_id"/>
+                                        <field name="tl_id"/>
+                                        <field name="odoo_id"/>
+                                        <field name="cpu"/>
+                                        <field name="ram"/>
+                                        <field name="disk"/>
+                                        <field name="limit_date"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="odoo_version_action_window">
+            <field name="name">Instance window</field>
+            <field name="res_model">odoo.version</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+
+
+        <!-- server action to the one above -->
+        <!--
+            <record model="ir.actions.server" id="kzm_instance_request.action_server">
+              <field name="name">kzm_instance_request server</field>
+              <field name="model_id" ref="model_kzm_instance_request_kzm_instance_request"/>
+              <field name="state">code</field>
+              <field name="code">
+                action = {
+                  "type": "ir.actions.act_window",
+                  "view_mode": "tree,form",
+                  "res_model": model._name,
+                }
+              </field>
+            </record>
+        -->
+
+        <!-- Top menu item -->
+
+        <!--<menuitem name="Odoo Version management" id="odoo_version.menu_root"/>-->
+
+        <!-- menu categories -->
+
+        <menuitem name="Versions" id="odoo_version_cat" parent="kzm_instance_request.menu_root"/>
+        <!--<menuitem name="Menu 2" id="kzm_instance_request.menu_2" parent="kzm_instance_request.menu_root"/>-->
+
+        <!-- actions -->
+
+        <menuitem name="List of odoo versions" id="odoo_version_list" parent="odoo_version_cat"
+                  action="odoo_version_action_window"/>
+        <!-- <menuitem name="Server to list" id="kzm_instance_request" parent="kzm_instance_request.menu_2"
+                   action="kzm_instance_request.action_server"/>
+     -->
+    </data>
+</odoo>

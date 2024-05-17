@@ -1,0 +1,411 @@
+<odoo>
+
+    <!-- Menu, list and redirection instance -->
+    <record id="menu_list" model="website.menu">
+        <field name="name">My instances</field>
+        <field name="url">/my/instances</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">40</field>
+    </record>
+
+    <template id="list_instance_portal" name="My Instances">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Instances</t>
+            </t>
+            <t t-if="grouped_instances" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Name</th>
+                        <th class="text-end">Customer</th>
+                        <th class="text-end">Employee</th>
+                        <th t-if="groupby != 'version'" class="text-center">Odoo Version</th>
+                        <th class="text-end">Purchase order</th>
+                        <th t-if="groupby != 'state'" class="text-end">State</th>
+                        <th class="text-end">CPU</th>
+                        <th class="text-end">RAM</th>
+                        <th class="text-end">DISK</th>
+                        <th class="text-end">Limit Date</th>
+                    </tr>
+                </thead>
+                <t t-foreach="grouped_instances" t-as="instances">
+                    <tbody>
+                        <tr t-if="not groupby =='none'" class="table-light">
+                            <th t-if="groupby == 'state'" colspan="9">
+                                <span t-field="instances[0].state"/>
+                            </th>
+                            <th t-if="groupby == 'version'" colspan="9">
+                                <span t-field="instances[0].odoo_id"/>
+                            </th>
+                        </tr>
+                    </tbody>
+                    <t t-foreach="instances" t-as="instance">
+                        <tr>
+                            <td class="text-end">
+                                <a t-attf-href="/my/instances/#{instance.id}">
+                                    <span t-field="instance.name"/>
+                                </a>
+                            </td>
+                            <td class="text-end">
+                                <span t-field="instance.partner_id.name"/>
+                            </td>
+                            <td class="text-end">
+                                <span t-field="instance.tl_id.name"/>
+                            </td>
+                            <td class="text-end">
+                                <span t-field="instance.odoo_id.name"/>
+                            </td>
+                            <td class="text-end">
+                                <span t-field="instance.sale_id.name"/>
+                            </td>
+                            <td class="text-end">
+                                <span t-field="instance.state"/>
+                            </td>
+                            <td class="text-end">
+                                <span t-field="instance.cpu"/>
+                            </td>
+                            <td class="text-end">
+                                <span t-field="instance.ram"/>
+                            </td>
+                            <td class="text-end">
+                                <span t-field="instance.disk"/>
+                            </td>
+                            <td class="text-end">
+                                <span t-field="instance.limit_date"/>
+                            </td>
+                        </tr>
+                    </t>
+                </t>
+            </t>
+            <p t-else="">There are currently no instance for your account.</p>
+            <div>
+                <t t-call="kzm_instance_creation_portal.calendar_portal">
+                    <t t-set="events" t-value="events_data"/>
+                    <t t-set="start_date" t-value="start_date" />
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <template id="instance_order_portal_template" name="Instance Portal Template" inherit_id="portal.portal_sidebar"
+              primary="True">
+        <xpath expr="//div[hasclass('o_portal_sidebar')]" position="inside">
+            <t t-set="o_portal_fullwidth_alert">
+                <!-- Uses backend_url provided in rendering values -->
+                <t t-call="portal.portal_back_in_edit_mode"/>
+            </t>
+
+            <div class="row mt16 o_portal_sale_sidebar">
+                <!-- Sidebar -->
+                <t t-call="portal.portal_record_sidebar">
+                    <t t-set="classes" t-value="'col-lg-auto d-print-none'"/>
+
+                    <t t-set="entries">
+                        <ul class="list-group list-group-flush flex-wrap flex-row flex-lg-column">
+                            <li class="list-group-item d-grid align-content-start">
+                                <div class="o_download_pdf btn-toolbar flex-sm-nowrap">
+                                    <div class="btn-group flex-grow-1 me-1 mb-1">
+                                        <a class="btn btn-secondary o_download_btn"
+                                           t-att-href="instance_order.get_portal_url(report_type='pdf', download=True)"
+                                           title="Download">
+                                            <i class="fa fa-download"/>
+                                            Download
+                                        </a>
+                                    </div>
+                                    <div class="btn-group flex-grow-1 mb-1">
+                                        <a class="btn btn-secondary o_print_btn o_portal_invoice_print"
+                                           t-att-href="instance_order.get_portal_url(report_type='pdf')"
+                                           id="print_invoice_report" title="Print" target="_blank">
+                                            <i class="fa fa-print"/>
+                                            Print
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="navspy list-group-item ps-0 flex-grow-1" t-ignore="true" role="complementary">
+                                <ul class="nav flex-column bs-sidenav"></ul>
+                            </li>
+
+                            <li class="list-group-item flex-grow-1">
+                                <div class="small mb-1">
+                                    <strong class="text-muted">Employee</strong>
+                                </div>
+                                <div class="row flex-nowrap">
+                                    <div class="col flex-grow-0 pe-2">
+                                        <img class="rounded-circle mr4 float-start o_portal_contact_img"
+                                             t-att-src="image_data_uri(instance_order.tl_id.avatar_1024)"
+                                             alt="Contact"/>
+                                    </div>
+                                    <div class="col ps-0" style="min-width: 150px">
+                                        <a href="#discussion" class="small">
+                                            <i class="fa fa-comment"></i>
+                                            Send message
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </t>
+                </t>
+
+                <!-- Page content -->
+                <div id="quote_content" class="col-12 col-lg justify-content-end">
+
+                    <!-- main content -->
+                    <div t-attf-class="card #{'pb-5' if report_type == 'html' else ''}" id="portal_sale_content">
+                        <div t-call="kzm_instance_creation_portal.instance_order_portal_content"/>
+                    </div>
+
+                    <!-- chatter -->
+                    <div id="sale_order_communication" class="mt-4">
+                        <h2>History</h2>
+                        <t t-call="portal.message_thread"/>
+                    </div>
+                </div><!-- // #quote_content -->
+            </div>
+        </xpath>
+    </template>
+
+    <template id="instance_order_portal_content" name="Instance Order Portal Content">
+        <!-- Intro -->
+        <div id="introduction" t-attf-class="pb-2 pt-3 #{'card-header bg-white' if report_type == 'html' else ''}">
+            <h2 class="my-0">
+                <em t-out="instance_order.name"/>
+            </h2>
+        </div>
+
+        <div t-attf-class="#{'card-body' if report_type == 'html' else ''}">
+            <!-- Informations -->
+            <div id="informations">
+                <div class="row" id="so_date">
+                    <div class="mb-3 col-6" t-if="instance_order.treat_date">
+                        <strong>Treat Date:</strong>
+                        <span t-field="instance_order.treat_date" t-options='{"widget": "date"}'/>
+                    </div>
+                    <div class="mb-3 col-6" t-if="instance_order.limit_date">
+                        <strong>Limit Date:</strong>
+                        <span t-field="instance_order.limit_date" t-options='{"widget": "date"}'/>
+                    </div>
+                    <div class="mb-3 col-6" t-if="instance_order.treat_duration">
+                        <strong>Treat Duration:</strong>
+                        <span t-field="instance_order.treat_duration"/>
+                    </div>
+                </div>
+                <div class="row" id="person_information">
+                    <div class="col-lg-6">
+                        <strong class="d-block mb-1">
+                            Others Informations
+                        </strong>
+                        <span t-if="instance_order.partner_id">
+                            Customer :
+                            <t t-out="instance_order.partner_id.name"/>
+                        </span>
+                        <br t-if="instance_order.partner_id"/>
+                        <span t-if="instance_order.tl_id">
+                            Employee :
+                            <t t-out="instance_order.tl_id.name"/>
+                        </span>
+                        <br t-if="instance_order.tl_id"/>
+                        <span t-if="instance_order.tl_user_id">
+                            User on employee :
+                            <t t-out="instance_order.tl_user_id.name"/>
+                        </span>
+                        <br t-if="instance_order.tl_user_id"/>
+                        <span t-if="instance_order.perimeters_ids">
+                            Perimeters :
+                            <t t-foreach="instance_order.perimeters_ids" t-as="i">
+                                <t t-out="i.name"/>
+                            </t>
+                        </span>
+                    </div>
+                </div>
+
+                <section id="details" style="page-break-inside: auto;" class="mt32">
+                    <h3 id="details">Instance</h3>
+
+
+                    <table t-att-data-order-id="instance_order.id" t-att-data-token="instance_order.access_token"
+                           class="table table-sm" id="instance_order_table">
+                        <thead class="bg-100">
+                            <tr>
+                                <th class="text-end">Sale ID</th>
+                                <th class="text-end">CPU</th>
+                                <th class="text-end">RAM</th>
+                                <th class="text-end">DISK</th>
+                                <th class="text-end">URL</th>
+                                <th class="text-end">State</th>
+                            </tr>
+                        </thead>
+                        <tbody class="instance_tbody">
+
+                            <tr>
+                                <td class="text-end">
+                                    <span t-field="instance_order.sale_id.name"/>
+                                </td>
+                                <td class="text-end">
+                                    <span t-field="instance_order.cpu"/>
+                                </td>
+                                <td class="text-end">
+                                    <span t-field="instance_order.ram"/>
+                                </td>
+                                <td class="text-end">
+                                    <span t-field="instance_order.disk"/>
+                                </td>
+                                <td class="text-end">
+                                    <span t-field="instance_order.url"/>
+                                </td>
+                                <td class="text-end">
+                                    <span t-field="instance_order.state"/>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </section>
+
+                <section id="terms" class="mt-5">
+                    <h3 class="">Terms &amp; Conditions</h3>
+                    <hr class="mt-0 mb-1"/>
+                </section>
+            </div>
+        </div>
+    </template>
+
+    <!-- Menu, form and message of creation instance -->
+    <record id="menu_Form" model="website.menu">
+        <field name="name">Create instance</field>
+        <field name="url">/form_create_instance</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">50</field>
+    </record>
+
+    <template id="form_instance_portal" name="Create instance">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <section class="s_title parallax s_parallax_is_fixed bg-black-50 pt24 pb24" data-vcss="001"
+                         data-snippet="s_title" data-scroll-background-ratio="1">
+                    <span class="s_parallax_bg oe_img_bg"
+                          style="background-image: url('/web/image/website.s_banner_default_image'); background-position: 50% 0;"/>
+                    <div class="o_we_bg_filter bg-black-50"/>
+                    <div class="container">
+                        <h1>Create instance</h1>
+                    </div>
+                </section>
+                <div class="oe_structure">
+                    <div class="container s_allow_columns">
+                        <div class="row">
+                            <div class="col-lg-8 mt-4 mt-lg-0">
+                                <section class="s_website_form" data-vcss="001" data-snippet="s_website_form">
+                                    <div class="container">
+                                        <form role="form" action="/create/instance" method="POST">
+                                            <input type="hidden" name="csrf_token"
+                                                   t-att-value="request.csrf_token()"/>
+                                            <div class="form-group">
+                                                <label for="cpu" class="control-label">CPU</label>
+                                                <input type="int" name="cpu" t-att-value="cpu" id="cpu"
+                                                       class="form-control"
+                                                       placeholder="CPU"
+                                                       required="required"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="ram" class="control-label">RAM</label>
+                                                <input type="int" name="ram" t-att-value="ram" id="ram"
+                                                       class="form-control"
+                                                       placeholder="RAM"
+                                                       required="required"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="disk" class="control-label"></label>
+                                                <input type="int" name="disk" t-att-value="disk" id="disk"
+                                                       class="form-control"
+                                                       placeholder="DISK"
+                                                       required="required"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="limit_date" class="control-label">Limit Date</label>
+                                                <input type="date" name="limit_date" t-att-value="limit_date"
+                                                       id="limit_date"
+                                                       class="form-control" placeholder=""
+                                                       required="required"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="url" class="control-label">URL</label>
+                                                <input type="int" name="url" t-att-value="url" id="url"
+                                                       class="form-control"
+                                                       placeholder="URL"
+                                                       required="required"/>
+                                            </div>
+                                            <div class="mb-0 py-2 col-5 s_website_form_submit"
+                                                 data-name="Submit Button">
+                                                <div style="width: 200px;" class="s_website_form_label"/>
+                                                <button type="submit" class="btn btn-primary pull-left">Submit
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <record id="instance_created" model="website.page">
+        <field name="name">Created</field>
+        <field name="type">qweb</field>
+        <field name="url">/instance-created</field>
+        <field name="website_published">True</field>
+        <field name="key">kzm_instance_creation_portal.instance_created</field>
+        <field name="arch" type="xml">
+            <t name="Created" t-name="kzm_instance_creation_portal.instance_created">
+                <t t-call="website.layout">
+                    <div id="wrap">
+                        <div class="container">
+                            <h1>Instance created</h1>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="alert alert-succes" role="status">
+                                        Your instance has been created successfully.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+
+
+    <!-- Put 'My instance' in 'my account' and display his submenu -->
+    <template id="portal_my_home_instance" name="Show Instances" customize_show="True"
+              inherit_id="portal.portal_my_home">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">My instances</t>
+                <t t-set="url" t-value="'/my/instances'"/>
+                <t t-set="placeholder_count" t-value="'instances_count'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_menu_instance" name="Portal layout : instance menu entries"
+              inherit_id="portal.portal_breadcrumbs" priority="20">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'instance'" t-attf-class="breadcrumb-item #{'active ' if not instance else ''}">
+                <a t-if="instance" t-attf-href="/my/instances?{{ keep_query() }}">Instances</a>
+                <t t-else="">Instances</t>
+            </li>
+            <li t-if="instance" class="breadcrumb-item active">
+                <t t-out="instance.name"/>
+            </li>
+        </xpath>
+    </template>
+
+
+</odoo>

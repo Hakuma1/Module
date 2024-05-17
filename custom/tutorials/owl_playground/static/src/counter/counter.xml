@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<template xml:space="preserve">
+    <t t-name="owl_playground.Counter" owl="1">
+        <div style="text-align:center">
+            <h2>Odoo OWL Tuto</h2>
+            <p>Counter: <t t-esc="state.value"/></p>
+            <button class="btn btn-primary" t-on-click="increment">Increment</button>
+        </div>
+    </t>
+</template>

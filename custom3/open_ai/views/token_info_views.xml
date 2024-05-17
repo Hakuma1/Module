@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="token_info_list_view">
+            <field name="name">List</field>
+            <field name="model">token.info</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="user_id"/>
+                    <field name="total_tokens"/>
+                    <field name="montant_total"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="token_info_form_view">
+            <field name="name">Form</field>
+            <field name="model">token.info</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="total_tokens"/>
+                            <field name="montant_total"/>
+                            <field name="token"/>
+                        </group>
+
+                        <notebook>
+                            <page string="Historique">
+                                <field name="historique_ids">
+                                    <tree>
+                                        <field name="question" readonly="1"/>
+                                        <field name="answer" readonly="1"/>
+                                        <field name="prompt_tokens" readonly="1"/>
+                                        <field name="total_tokens" readonly="1"/>
+                                        <field name="montant_total" readonly="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="token_info_action_window">
+            <field name="name">Token Info</field>
+            <field name="res_model">token.info</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Token Info" id="token_info_root_menu" web_icon="open_ai,static/description/icon.png"/>
+
+
+        <menuitem name="Token Informations" id="token_info_menu" parent="token_info_root_menu"
+                  action="token_info_action_window"/>
+    </data>
+</odoo>

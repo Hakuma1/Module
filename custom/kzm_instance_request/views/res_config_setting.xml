@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!-- List view -->
+
+
+        <!-- Form view -->
+        <record id="res_config_settings_view_form_mamdy_FOW" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.base.setup.extended</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="mail_mobile.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='about']" position="before">
+                    <div>
+                        <h2>MAMADY</h2>
+                        <div class="row mt16 o_settings_container">
+
+                            <div class="row" id="sms2">
+                                <div class="col-4">
+                                    <field name="journal_id"/>
+                                </div>
+                                <div class="col-4">
+                                    <field name="salary_credit_account_id"/>
+                                </div>
+                                <div class="col-4">
+                                    <field name="salary_debit_account_id"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="res_config_settings_view_form_mamdy" model="ir.ui.view">
+            <field name="name">res.company.form.extended</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='favicon']" position="after">
+
+                    <field name="journal_id"/>
+                    <field name="salary_credit_account_id"/>
+                    <field name="salary_debit_account_id"/>
+
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

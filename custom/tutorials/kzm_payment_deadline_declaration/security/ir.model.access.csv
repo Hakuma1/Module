@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_merchandise_type,merchandise_type,model_merchandise_type,,1,1,1,1
+access_deadline_declaration_line,deadline_declaration_line,model_deadline_declaration_line,,1,1,1,1
+access_deadline_declaration,deadline_declaration,model_deadline_declaration,,1,1,1,1
+access_add_invoices_wizard,add_invoices_wizard,model_add_invoices_wizard,,1,1,1,1

@@ -1,0 +1,45 @@
+<odoo>
+    <data noupdate="1">
+
+        <record id="offer1" model="estate.property.offer">
+            <field name="partner_id" ref="base.res_partner_12"/>
+            <field name="property_id" ref="estate.property1"/>
+            <field name="price">10000</field>
+            <field name="validity">14</field>
+        </record>
+        <record id="offer2" model="estate.property.offer">
+            <field name="partner_id" ref="base.res_partner_12"/>
+            <field name="property_id" ref="estate.property1"/>
+            <field name="price">1500000</field>
+            <field name="validity">14</field>
+        </record>
+        <record id="offer3" model="estate.property.offer">
+            <field name="partner_id" ref="base.res_partner_2"/>
+            <field name="property_id" ref="estate.property1"/>
+            <field name="price">1500001</field>
+            <field name="validity">14</field>
+        </record>
+
+        <record id="offer2" model="estate.property.offer">
+            <field name="date_deadline" eval="context_timestamp(datetime.date.today()).strftime('%d-%m-%Y')"/>
+        </record>
+        <record id="offer1" model="estate.property.offer">
+            <field name="date_deadline" eval="context_timestamp(datetime.date.today()).strftime('%d-%m-%Y')"/>
+        </record>
+        <record id="offer3" model="estate.property.offer">
+            <field name="date_deadline" eval="context_timestamp(datetime.date.today()).strftime('%d-%m-%Y')"/>
+        </record>
+
+        <function model="estate.property.offer" name="action_do_refused">
+            <value eval="[ref('offer1')]"/>
+        </function>
+        <function model="estate.property.offer" name="action_do_refused">
+            <value eval="[ref('offer2')]"/>
+        </function>
+        <function model="estate.property.offer" name="action_do_accepted">
+            <value eval="[ref('offer3')]"/>
+        </function>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_partner_form" model="ir.ui.view">
+            <field name="name">Add VIES passed fields</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='sales_purchases']" position="after">
+                    <page name="edi_payment_delay" string="Edi payment delay"
+                          attrs="{'invisible': [('supplier_rank', '&lt;=', 0)]}">
+                        <div>
+                            <label for="agreed_payment_delay"/>
+                            <field name="agreed_payment_delay" class="oe_inline"/>
+                        </div>
+                    </page>
+                </xpath>
+                <field name="ref" position="after">
+                    <field name="supplier_rank" invisible="0"/>
+                    <field name="commercial_register" attrs="{'invisible': [('supplier_rank', '&lt;=', 0)]}"/>
+                    <field name="merchandise_type_id" attrs="{'invisible': [('supplier_rank', '&lt;=', 0)]}"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="token_info_list_view">
+            <field name="name">List</field>
+            <field name="model">token.info</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="user_id"/>
+                    <field name="total_token"/>
+                    <field name="prix_total"/>
+                    <field name="token"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="token_info_form_view">
+            <field name="name">Form</field>
+            <field name="model">token.info</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="total_token"/>
+                            <field name="prix_total"/>
+                            <field name="token"/>
+                        </group>
+                        <notebook>
+                                <page string="Historique">
+                                    <field name="historique_ids">
+                                        <tree editable="bottom">
+                                            <field name="question"/>
+                                            <field name="answer"/>
+                                            <field name="prompt_tokens"/>
+                                            <field name="total_token"/>
+                                            <field name="prix_total"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                            </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="token_info_action_window">
+            <field name="name">Token info</field>
+            <field name="res_model">token.info</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Token Info" id="token_info_menu_root" web_icon="gpt3_chatbot,static/description/icon.png"/>
+        <menuitem name="Info" id="token_info_menu" parent="gpt3_chatbot.token_info_menu_root"
+                  action="token_info_action_window"/>
+
+        <record model="ir.ui.view" id="historique_list_view">
+            <field name="name">List</field>
+            <field name="model">chatbot.historique</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="question"/>
+                    <field name="answer"/>
+                    <field name="total_token"/>
+                    <field name="prompt_tokens"/>
+                    <field name="prix_total"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="historique_action_window">
+            <field name="name">Historique</field>
+            <field name="res_model">chatbot.historique</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Historique" id="historique_menu" parent="gpt3_chatbot.token_info_menu_root"
+                  action="historique_action_window"/>
+
+    </data>
+</odoo>

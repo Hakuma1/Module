@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+        <template id="sale_report" inherit_id="sale.report_saleorder_document">
+            <xpath expr="//th[@name='th_priceunit']" position="after">
+                <th name="th_version_odoo_id" class="text-end">Odoo version</th>
+            </xpath>
+            <xpath expr="//td[@name='td_priceunit']" position="after">
+                <td class="text-end" t-if="doc.version_odoo_id" >
+                    <span t-field="doc.version_odoo_id.name"/>
+                </td>
+
+            </xpath>
+        </template>
+</odoo>

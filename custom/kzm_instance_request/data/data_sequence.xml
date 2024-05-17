@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <!--Sequence for kzm.instance.request-->
+        <record id="seq_kzm_instance_request" model="ir.sequence">
+            <field name="name">Instance sequence</field>
+            <field name="code">instance.increment</field>
+            <field name="prefix">INST</field>
+            <field name="padding">5</field>
+            <field name="number_next" eval="1"/>
+            <field name="number_increment" eval="1"/>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

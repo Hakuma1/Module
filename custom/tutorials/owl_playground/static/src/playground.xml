@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="owl_playground.playground" owl="1">
+        <div class="p-3" style="margin-top: 100px;background-color:gray;margin-left:30px;margin-right:30px;">
+            <h1 style="text-align:center; color: blue; text-decoration:underline;">START</h1>
+            <Counter/>
+            <Card>
+                <t t-set-slot="title">Card title</t>
+                Some quick example text..
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </Card>
+            <TodoList/>
+        </div>
+    </t>
+</templates>

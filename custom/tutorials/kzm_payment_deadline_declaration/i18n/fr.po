@@ -1,0 +1,502 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* kzm_payment_deadline_declaration
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-13 15:12+0000\n"
+"PO-Revision-Date: 2023-10-13 15:12+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: kzm_payment_deadline_declaration
+#: model_terms:ir.ui.view,arch_db:kzm_payment_deadline_declaration.deadline_declaration_form_view
+msgid "<span class=\"o_stat_text\">Invoices</span>"
+msgstr "<span class=\"o_stat_text\">Factures</span>"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_res_company__activity_type
+msgid "Activity Type"
+msgstr "Type d'activité"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model,name:kzm_payment_deadline_declaration.model_add_invoices_wizard
+msgid "Add Invoices Wizard"
+msgstr "Ajouter Factures"
+
+#. module: kzm_payment_deadline_declaration
+#: model_terms:ir.ui.view,arch_db:kzm_payment_deadline_declaration.add_invoices_wizard
+#: model_terms:ir.ui.view,arch_db:kzm_payment_deadline_declaration.deadline_declaration_form_view
+msgid "Add invoices"
+msgstr "Ajouter factures"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_account_move__agreed_payment_date
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__agreed_payment_date
+msgid "Agreed Payment Date"
+msgstr "Date Convenue Paiement"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_account_move__agreed_payment_delay
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_res_partner__agreed_payment_delay
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_res_users__agreed_payment_delay
+msgid "Agreed Payment Delay"
+msgstr "Délai convenue de paiement"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__amount_residual
+msgid "Amount Residual"
+msgstr "Montant non payé"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__amount_residual_after_jugdment
+msgid "Amount Residual After Jugdment"
+msgstr "Montant dû Apres Jugement"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__amount_justice
+msgid "Amount subject to litigation"
+msgstr ""
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields.selection,name:kzm_payment_deadline_declaration.selection__res_company__declaration_payment_deadline__1
+msgid "Annual"
+msgstr "Annuelle"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__ascertainment_date
+msgid "Ascertainment Date"
+msgstr "Date de constatation"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields.selection,name:kzm_payment_deadline_declaration.selection__deadline_declaration_line__payment_mode__5
+msgid "Bill of exchange"
+msgstr "Effets"
+
+#. module: kzm_payment_deadline_declaration
+#: model_terms:ir.ui.view,arch_db:kzm_payment_deadline_declaration.add_invoices_wizard
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields.selection,name:kzm_payment_deadline_declaration.selection__deadline_declaration_line__payment_mode__1
+msgid "Cash"
+msgstr "Espèces"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields.selection,name:kzm_payment_deadline_declaration.selection__deadline_declaration_line__payment_mode__2
+msgid "Check"
+msgstr "Chèque"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_res_partner__commercial_register
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_res_users__commercial_register
+msgid "Commercial Register"
+msgstr "Registre commercial"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model,name:kzm_payment_deadline_declaration.model_res_company
+msgid "Company"
+msgstr "Société"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model,name:kzm_payment_deadline_declaration.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de config"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model,name:kzm_payment_deadline_declaration.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_add_invoices_wizard__create_uid
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration__create_uid
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__create_uid
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_merchandise_type__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_add_invoices_wizard__create_date
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration__create_date
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__create_date
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_merchandise_type__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model,name:kzm_payment_deadline_declaration.model_date_range
+msgid "Date Range"
+msgstr ""
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration__judgment_date
+msgid "Date of judgment opening proceedings"
+msgstr "Date de jugement ouvrant la procédure"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration__deadline_declaration_lines_count
+msgid "Deadline Declaration Lines Count"
+msgstr "Nombre lignes déclaration"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.actions.act_window,name:kzm_payment_deadline_declaration.deadline_declaration_action_window
+msgid "Deadline declaration"
+msgstr "Déclaration de délai"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__declaration_id
+msgid "Declaration"
+msgstr "Déclaration"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration__declaration_date
+msgid "Declaration Date"
+msgstr "Date déclaration"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration__declaration_line_ids
+msgid "Declaration Line"
+msgstr "Ligne déclaration"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_res_company__declaration_payment_deadline
+msgid "Declaration Payment Deadline"
+msgstr "Déclaration délai paiement"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.ui.menu,name:kzm_payment_deadline_declaration.declaration_payment_deadlines_menu
+msgid "Declaration Payment deadlines"
+msgstr "Déclaration Délais paiement"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.ui.menu,name:kzm_payment_deadline_declaration.declaration_deadlines_menu
+msgid "Declaration deadlines"
+msgstr "Déclaration Délais"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model,name:kzm_payment_deadline_declaration.model_deadline_declaration_line
+#: model_terms:ir.ui.view,arch_db:kzm_payment_deadline_declaration.deadline_declaration_form_view
+msgid "Declaration lines"
+msgstr "Lignes déclaration"
+
+#. module: kzm_payment_deadline_declaration
+#: model_terms:ir.ui.view,arch_db:kzm_payment_deadline_declaration.digit_account_view_inherited
+msgid "Declaration payment"
+msgstr "Paiement de la déclaration"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model,name:kzm_payment_deadline_declaration.model_deadline_declaration
+msgid "Declaration payment deadlines"
+msgstr "Déclaration délais paiement"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__delivery_date
+msgid "Delivery Date"
+msgstr "Date livraison"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_add_invoices_wizard__display_name
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration__display_name
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__display_name
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_merchandise_type__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields.selection,name:kzm_payment_deadline_declaration.selection__deadline_declaration__state__draft
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields.selection,name:kzm_payment_deadline_declaration.selection__res_company__activity_type__2
+msgid "During safeguard, recovery or liquidation proceedings"
+msgstr ""
+"En cours de procédure de sauvegarde, de redressement ou liquidation "
+"judiciaire"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration__edi_filename
+msgid "EDI"
+msgstr "Nom du fichier EDI"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration__fichier_edi
+msgid "EDI File"
+msgstr "Fichier EDI"
+
+#. module: kzm_payment_deadline_declaration
+#: model_terms:ir.ui.view,arch_db:kzm_payment_deadline_declaration.account_move_form_inherited
+#: model_terms:ir.ui.view,arch_db:kzm_payment_deadline_declaration.view_partner_form
+msgid "Edi payment delay"
+msgstr "Edi délai paiement"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__expected_invoice_payment_date
+msgid "Expected Invoice Payment Date"
+msgstr "Date prévue paiement selon le délai fixé"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__expected_invoice_payment_deadline
+msgid "Expected Invoice Payment Deadline"
+msgstr "Délai prévu paiement selon délai fixé par le secteur"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__expected_payment_date
+msgid "Expected Payment Date"
+msgstr "Date prévue de paiement"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__final_judgment_date
+msgid "Final Judgment Date"
+msgstr "Date Jugement Définitif"
+
+#. module: kzm_payment_deadline_declaration
+#: model_terms:ir.ui.view,arch_db:kzm_payment_deadline_declaration.deadline_declaration_form_view
+msgid "Generate EDI"
+msgstr "Générer EDI"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_add_invoices_wizard__id
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration__id
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__id
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_merchandise_type__id
+msgid "ID"
+msgstr ""
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration__IF
+msgid "If"
+msgstr ""
+
+#. module: kzm_payment_deadline_declaration
+#: code:addons/kzm_payment_deadline_declaration/models/deadline_declaration.py:0
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_add_invoices_wizard__invoice_ids
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__invoice_id
+#, python-format
+msgid "Invoice"
+msgstr "Facture"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__invoice_amount
+msgid "Invoice Amount"
+msgstr "Montant de la facture"
+
+#. module: kzm_payment_deadline_declaration
+#: model_terms:ir.ui.view,arch_db:kzm_payment_deadline_declaration.add_invoices_wizard
+msgid "Invoices"
+msgstr "Factures"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model,name:kzm_payment_deadline_declaration.model_account_move
+msgid "Journal Entries"
+msgstr "Pièces comptables"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_add_invoices_wizard____last_update
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration____last_update
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line____last_update
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_merchandise_type____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_add_invoices_wizard__write_uid
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration__write_uid
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__write_uid
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_merchandise_type__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_add_invoices_wizard__write_date
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration__write_date
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__write_date
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_merchandise_type__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__legal_appeal_date
+msgid "Legal Appeal Date"
+msgstr "Date recours judiciaire"
+
+#. module: kzm_payment_deadline_declaration
+#: model_terms:ir.ui.view,arch_db:kzm_payment_deadline_declaration.deadline_declaration_form_view
+msgid "Load invoices"
+msgstr "Charger factures"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_account_move__merchandise_type_id
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_res_partner__merchandise_type_id
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_res_users__merchandise_type_id
+msgid "Merchandise Type"
+msgstr "Type de marchandise"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__merchandise_type_id
+msgid "Merchandise nature"
+msgstr "Nature marchandise"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_add_invoices_wizard__name
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration__name
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_merchandise_type__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: kzm_payment_deadline_declaration
+#: code:addons/kzm_payment_deadline_declaration/models/deadline_declaration.py:0
+#: code:addons/kzm_payment_deadline_declaration/models/deadline_declaration.py:0
+#: code:addons/kzm_payment_deadline_declaration/models/deadline_declaration.py:0
+#, python-format
+msgid "New"
+msgstr "Nouveau"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields.selection,name:kzm_payment_deadline_declaration.selection__res_company__activity_type__1
+msgid "Normal Activity"
+msgstr "Activité Normal"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__payed_amount_out_deadline
+msgid "Payed Amount Out Deadline"
+msgstr "Montant payé totalement ou partiellement hors délai"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__payment_date_out_deadline
+msgid "Payment Date Out Deadline"
+msgstr "Date paiement total ou partiel hors délai"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__payment_mode
+msgid "Payment Mode"
+msgstr "Mode paiement"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__payment_ref
+msgid "Payment Ref"
+msgstr "Référence Paiement"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration__quarter
+msgid "Quarter"
+msgstr "Trimestre"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields.selection,name:kzm_payment_deadline_declaration.selection__res_company__declaration_payment_deadline__2
+msgid "Quarterly"
+msgstr "Trimestrielle"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__invoice_number
+msgid "Reference"
+msgstr "Numéro facture"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__release_date
+msgid "Release Date"
+msgstr "Date émission"
+
+#. module: kzm_payment_deadline_declaration
+#: model_terms:ir.ui.view,arch_db:kzm_payment_deadline_declaration.deadline_declaration_form_view
+msgid "Reset"
+msgstr "Réinitialiser"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_res_company__start_declaration_payment_deadline
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_res_config_settings__start_declaration_payment_deadline
+msgid "Start Declaration Payment Deadline"
+msgstr "Début déclaration délai paiement"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration__state
+msgid "State"
+msgstr "Etat"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields.selection,name:kzm_payment_deadline_declaration.selection__deadline_declaration__state__submitted
+msgid "Submitted"
+msgstr "Déposé"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__partner_id
+msgid "Supplier"
+msgstr "Fournisseur"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__IF
+msgid "Supplier IF"
+msgstr "IF fournisseur"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__rc
+msgid "Supplier RC"
+msgstr "RC fournisseur"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__contact_address
+msgid "Supplier address"
+msgstr "Adresse fournisseur"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields.selection,name:kzm_payment_deadline_declaration.selection__deadline_declaration__quarter__1
+msgid "T1"
+msgstr ""
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields.selection,name:kzm_payment_deadline_declaration.selection__deadline_declaration__quarter__2
+msgid "T2"
+msgstr ""
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields.selection,name:kzm_payment_deadline_declaration.selection__deadline_declaration__quarter__3
+msgid "T3"
+msgstr ""
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields.selection,name:kzm_payment_deadline_declaration.selection__deadline_declaration__quarter__4
+msgid "T4"
+msgstr ""
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__transaction_month
+msgid "Transaction Month"
+msgstr "Mois transaction "
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration_line__transaction_year
+msgid "Transaction Year"
+msgstr "Année transaction "
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields.selection,name:kzm_payment_deadline_declaration.selection__deadline_declaration_line__payment_mode__4
+msgid "Transfer"
+msgstr "Virement"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_date_range__trimestre
+msgid "Trimestre"
+msgstr ""
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields,field_description:kzm_payment_deadline_declaration.field_deadline_declaration__turnover
+msgid "Turnover"
+msgstr "Chiffre d'affaire"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model.fields.selection,name:kzm_payment_deadline_declaration.selection__deadline_declaration_line__payment_mode__3
+msgid "Withdrawal"
+msgstr "Prélèvement"
+
+#. module: kzm_payment_deadline_declaration
+#: model:ir.model,name:kzm_payment_deadline_declaration.model_merchandise_type
+msgid "merchandise.type"
+msgstr ""

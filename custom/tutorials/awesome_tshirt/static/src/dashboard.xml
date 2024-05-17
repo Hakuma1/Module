@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="awesome_tshirt.clientaction" owl="1">
+        <Layout display="display">
+            <t t-set-slot="control-panel-bottom-left">
+                <button class="btn btn-primary" t-on-click="openCustomerView"> Customers </button>
+                <button class="btn btn-primary" t-on-click="openLast7DaysOrders"> New Orders </button>
+                <button class="btn btn-primary" t-on-click="openLast7DaysCancelledOrders"> Cancelled Orders </button>
+            </t>
+            <div class="d-flex flex-nowrap">
+                <div t-foreach="cardKeys" t-as="elt" t-key="elt_index" class="m-2">
+                    <Card>
+                        <t t-set-slot="title">
+                            <t t-esc="cardKeys[elt]"/>
+                        </t>
+                        <p><t t-esc="statistics[elt]"/></p>
+                    </Card>
+                </div>
+            </div>
+            <div class="m-3">
+                <Card className="'w-25'">
+                    <t t-set-slot="title">Shirt orders by size</t>
+                    <PieChart data="statistics['orders_by_size']" label="'Shirt orders by size'"/>
+                 </Card>
+            </div>
+        </Layout>
+    </t>
+
+</templates>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="calendar_template" name="Calendar Template">
+        <div id="calendar">
+            <div>
+                <span class="events" t-att-value="json.dumps(events)"/>
+                <span class="start_date" t-att-value="start_date"/>
+            </div>
+        </div>
+    </template>
+</odoo>

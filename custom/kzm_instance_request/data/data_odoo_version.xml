@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="version_13" model="odoo.version">
+            <field name="name">13</field>
+        </record>
+
+        <record id="version_14" model="odoo.version">
+            <field name="name">14</field>
+        </record>
+
+        <record id="version_15" model="odoo.version">
+            <field name="name">15</field>
+        </record>
+
+        <record id="version_16" model="odoo.version">
+            <field name="name">16</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="account_move_form_inherited" model="ir.ui.view">
+            <field name="name">account.move.form.inherited</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@id='other_tab']" position="before">
+                    <page name="edi_payment_delay" string="Edi payment delay"
+                          attrs="{'invisible': [('move_type', '!=', 'in_invoice')]}">
+                        <div>
+                            <label for="agreed_payment_delay"/>
+                            <field name="agreed_payment_delay" class="oe_inline"/>
+                        </div>
+                        <div>
+                            <label for="agreed_payment_date"/>
+                            <field name="agreed_payment_date"/>
+                        </div>
+                    </page>
+                </xpath>
+                <xpath expr="//field[@name='ref']" position="after">
+                    <field name="merchandise_type_id" attrs="{'invisible': [('move_type', '!=', 'in_invoice')]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

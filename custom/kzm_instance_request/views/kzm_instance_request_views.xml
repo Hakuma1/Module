@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <!-- explicit graph view definition -->
+        <record id="kzm_instance_request_graph_view" model="ir.ui.view">
+            <field name="name">Instance graph</field>
+            <field name="model">kzm.instance.request</field>
+            <field name="arch" type="xml">
+                <graph string="Instance Analysis">
+                    <field name="create_date"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- explicit pivot view definition -->
+        <record id="kzm_instance_request_pivot_view" model="ir.ui.view">
+            <field name="name">Instance Pivot</field>
+            <field name="model">kzm.instance.request</field>
+            <field name="arch" type="xml">
+                <pivot string="Instance">
+                    <field name="treat_duration" type="col"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- explicit gantt view definition -->
+        <record id="kzm_instance_request_gantt_view" model="ir.ui.view">
+            <field name="name">Instance Gantt</field>
+            <field name="model">kzm.instance.request</field>
+            <field name="arch" type="xml">
+                <gantt string="Instance Gantt" date_stop="limit_date" date_start="treat_date"
+                       default_group_by="state">
+                </gantt>
+            </field>
+        </record>
+
+        <!-- explicit kanban view definition -->
+        <record id="kzm_instance_request_kanban_view" model="ir.ui.view">
+            <field name="name">Instance Kanban view</field>
+            <field name="model">kzm.instance.request</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile" default_group_by="state">
+                    <field name="create_uid"/>
+                    <field name="name"/>
+                    <field name="cpu"/>
+                    <field name="ram"/>
+                    <field name="disk"/>
+                    <field name="state"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <ul>
+                                        <li>
+                                            Create by:
+                                            <field name="create_uid"/>
+                                        </li>
+                                        <li>
+                                            Name:
+                                            <field name="name"/>
+                                        </li>
+                                        <li>
+                                            CPU:
+                                            <field name="cpu"/>
+                                        </li>
+                                        <li>
+                                            RAM:
+                                            <field name="ram"/>
+                                        </li>
+                                        <li>
+                                            DISK:
+                                            <field name="disk"/>
+                                        </li>
+                                        <li>
+                                            State:
+                                            <field name="state"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="kzm_instance_request_list_view">
+            <field name="name">List of instance</field>
+            <field name="model">kzm.instance.request</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="create_uid"/>
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="tl_id"/>
+                    <field name="tl_user_id"/>
+                    <field name="odoo_id"/>
+                    <field name="sale_id"/>
+                    <field name="perimeters_ids"/>
+                    <field name="perimeters_count"/>
+                    <field name="limit_date"/>
+                    <field name="cpu"/>
+                    <field name="ram"/>
+                    <field name="disk"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- explicit search view definition -->
+
+        <record model="ir.ui.view" id="kzm_instance_request_search_view">
+            <field name="name">Search</field>
+            <field name="model">kzm.instance.request</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="address_ip"/>
+                    <field name="partner_id"/>
+                    <field name="tl_id"/>
+                    <field name="tl_user_id"/>
+                    <field name="odoo_id"/>
+                    <field name="perimeters_ids"/>
+                    <field name="perimeters_count"/>
+                    <filter name="filter_created_by" string="Created by" domain="[('create_uid','=',uid)]"/>
+                    <filter name="filter_request_in_late" string="Request in late"
+                            domain="[('limit_date','&lt;',(context_today() + datetime.timedelta(days=5)).strftime('%%Y-%%m-%%d'))]"/>
+                    <separator/>
+                    <filter name="filter_draft" string="Draft" domain="[('state','=','Draft')]"/>
+                    <filter name="filter_submitted" string="Submitted" domain="[('state','=','Submitted')]"/>
+                    <filter name="filter_in_process" string="In process" domain="[('state','=','In process')]"/>
+                    <filter name="filter_processed" string="Processed" domain="[('state','=','Processed')]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="State" name="group_by_state" context="{'group_by':'state'}"/>
+                        <filter string="TL" name="group_by_tl" context="{'group_by':'tl_id'}"/>
+                        <filter string="Odoo Version" name="group_by_version" context="{'group_by':'odoo_id'}"/>
+                    </group>
+                    <searchpanel>
+                        <field name="odoo_id" icon="fa-arrow-right" select="multi" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="kzm_instance_request_search_view2">
+            <field name="name">Search 2</field>
+            <field name="model">kzm.instance.request</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="cpu"/>
+                    <field name="ram"/>
+                    <field name="partner_id"/>
+                    <field name="tl_id"/>
+                    <field name="tl_user_id"/>
+                    <field name="odoo_id"/>
+                    <field name="perimeters_ids"/>
+                    <field name="perimeters_count"/>
+                    <filter name="filter_created_by2" string="Created by" domain="[('create_uid','=',uid)]"/>
+                    <separator/>
+                    <filter name="filter_draft" string="Draft" domain="[('state','=','Draft')]"/>
+                    <filter name="filter_submitted" string="Submitted" domain="[('state','=','Submitted')]"/>
+                    <filter name="filter_in_process" string="In process" domain="[('state','=','In process')]"/>
+                    <filter name="filter_processed" string="Processed" domain="[('state','=','Processed')]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="State" name="group_by_state" context="{'group_by':'state'}"/>
+                        <filter string="TL" name="group_by_tl" context="{'group_by':'tl_id'}"/>
+                        <filter string="Odoo Version" name="group_by_version" context="{'group_by':'odoo_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <!-- explicit form view definition -->
+
+        <record model="ir.ui.view" id="kzm_instance_request_form_view">
+            <field name="name">Request instance</field>
+            <field name="model">kzm.instance.request</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button id="button_draft" name="action_draft" string="Draft" type="object" class="oe_highlight"
+                                states="Submitted,Processed"/>
+                        <button id="button_submitted" name="action_submitted" string="Submitted" type="object"
+                                class="oe_highlight" states="Draft"/>
+                        <button id="button_in_process" name="action_in_process" string="In process" type="object"
+                                class="oe_highlight" states="Submitted"
+                                groups="kzm_instance_request.group_instance_manager"/>
+                        <button id="button_processed" name="action_processed" string="Processed" type="object"
+                                class="oe_highlight" states="In process"
+                                groups="kzm_instance_request.group_instance_manager"/>
+                        <button id="test" name="test_button" string="Test" type="object"
+                                class="oe_highlight"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div>
+                            <h1 class="oe_title">
+                                <field name="name" required="True" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="partner_id"/>
+                                <field name="tl_id"/>
+                                <field name="tl_user_id"/>
+                                <field name="odoo_id"/>
+                            </group>
+                            <group>
+                                <field name="cpu" attrs="{'readonly': [('state','=','Processed')]}"/>
+                                <field name="address_id"/>
+                                <field name="ram" attrs="{'readonly': [('state','=','Processed')]}"/>
+                                <field name="disk" attrs="{'readonly': [('state','=','Processed')]}"/>
+                            </group>
+                            <group>
+                                <field name="address_ip"
+                                       attrs="{'invisible': [('state', 'in', ('Processed','In processed','Draft'))],'readonly': [('state','=','Processed')]}"/>
+                                <field name="url" attrs="{'readonly': [('state','=','Processed')]}"/>
+                                <field name="limit_date" required="True"
+                                       attrs="{'readonly': [('state','=','Processed')]}"/>
+                                <field name="treat_date" force_save="1"/>
+                                <field name="currency_id"/>
+                            </group>
+                            <group>
+                                <field name="sale_id"/>
+                                <field name="treat_duration" attrs="{'readonly': [('state','=','Processed')]}"/>
+                                <field name="perimeters_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                <field name="perimeters_count"/>
+                                <field name="prix" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            </group>
+                        </group>
+                    </sheet>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+
+                </form>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="kzm_instance_request_action_window">
+            <field name="name">Instance window</field>
+            <field name="res_model">kzm.instance.request</field>
+            <field name="view_mode">tree,form,kanban,gantt,pivot</field>
+            <field name="search_view_id" ref="kzm_instance_request_search_view"/>
+            <field name="domain">[('create_uid','=',uid)]</field>
+            <field name="context">{"search_default_filter_created_by":0}</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="kzm_instance_request_action_window2">
+            <field name="name">Instance window</field>
+            <field name="res_model">kzm.instance.request</field>
+            <field name="view_mode">tree,form,kanban,gantt,pivot</field>
+            <field name="search_view_id" ref="kzm_instance_request_search_view2"/>
+            <field name="domain">[('create_uid','=',uid)]</field>
+            <field name="context">{"search_default_filter_created_by2":0}</field>
+        </record>
+
+        <!-- Action ajouter les menus Responsables > À valider : qui affiche toutes les demandes en état Soumises et  En traitement-->
+
+        <record model="ir.actions.act_window" id="kzm_instance_request_action_window_S_IP">
+            <field name="name">Request in state submitted or in process</field>
+            <field name="res_model">kzm.instance.request</field>
+            <field name="view_mode">tree,form,kanban,gantt,pivot</field>
+            <field name="domain">['|',('state','=','Submitted'),('state','=','In Process')]</field>
+        </record>
+
+
+        <!-- Action ajouter les menus Responsables > Toutes : qui affiche toutes les demandes-->
+
+        <record model="ir.actions.act_window" id="kzm_instance_request_action_window_all">
+            <field name="name">Requests</field>
+            <field name="res_model">kzm.instance.request</field>
+            <field name="view_mode">tree,form,kanban,gantt,pivot</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="kzm_instance_request_action_window_all_late">
+            <field name="name">Requests</field>
+            <field name="res_model">kzm.instance.request</field>
+            <field name="view_mode">tree,form,kanban,gantt,pivot</field>
+            <field name="context">{"search_default_filter_request_in_late":1}</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="kzm_instance_request_action_window_all_graph">
+            <field name="name">Requests</field>
+            <field name="res_model">kzm.instance.request</field>
+            <field name="view_mode">graph</field>
+        </record>
+
+
+        <!-- Action server  -->
+        <record model="ir.actions.server" id="action_server_p">
+            <field name="name">Processed</field>
+            <field name="model_id" ref="model_kzm_instance_request"/>
+            <field name="binding_model_id" ref="model_kzm_instance_request"/>
+            <field name="state">code</field>
+            <field name="code">
+                action = records.action_processed()
+            </field>
+            <!--<field name="groups_id" eval="[(4, ref('base.group_erp_manager'))]"/>-->
+        </record>
+
+
+        <!-- Action  scheduled -->
+        <record id="submitted_cron" model="ir.cron">
+            <field name="name">Submitted</field>
+            <field name="model_id" ref="model_kzm_instance_request"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="type">ir.actions.server</field>
+            <field name="numbercall">-1</field>
+            <field name="code">model.submitted_cron()</field>
+            <field name="state">code</field>
+            <field name="active" eval="True"></field>
+        </record>
+
+
+        <!-- server action to the one above -->
+        <!--
+            <record model="ir.actions.server" id="kzm_instance_request.action_server">
+              <field name="name">kzm_instance_request server</field>
+              <field name="model_id" ref="model_kzm_instance_request_kzm_instance_request"/>
+              <field name="state">code</field>
+              <field name="code">
+                action = {
+                  "type": "ir.actions.act_window",
+                  "view_mode": "tree,form",
+                  "res_model": model._name,
+                }
+              </field>
+            </record>
+        -->
+
+        <!-- Top menu item -->
+
+        <menuitem name="Instance" id="kzm_instance_request.menu_root"
+                  web_icon="kzm_instance_request,static/description/icon.png"/>
+
+        <!-- menu categories -->
+
+        <menuitem name="My requests" id="kzm_instance_request_cat" parent="kzm_instance_request.menu_root"/>
+        <!--<menuitem name="Menu 2" id="kzm_instance_request.menu_2" parent="kzm_instance_request.menu_root"/>-->
+
+        <!-- actions -->
+
+        <menuitem name="Display list of request" id="kzm_instance_request_list" parent="kzm_instance_request_cat"
+                  action="kzm_instance_request_action_window" groups="kzm_instance_request.group_instance_user"/>
+        <menuitem name="Display list of request 2" id="kzm_instance_request_list2"
+                  parent="kzm_instance_request_cat"
+                  action="kzm_instance_request_action_window2" groups="kzm_instance_request.group_instance_user"/>
+
+        <menuitem name="Request in late" id="kzm_instance_request_in_late" parent="kzm_instance_request.menu_root"
+                  groups="kzm_instance_request.group_instance_user"
+                  action="kzm_instance_request_action_window_all_late"/>
+
+        <menuitem name="Manager" id="kzm_instance_manager" parent="kzm_instance_request.menu_root"
+                  groups="kzm_instance_request.group_instance_manager"/>
+        <menuitem name="To be validated" id="kzm_instance_to_be_validated" parent="kzm_instance_manager"
+                  action="kzm_instance_request_action_window_S_IP"/>
+        <menuitem name="All" id="kzm_instance_all" parent="kzm_instance_manager"
+                  action="kzm_instance_request_action_window_all"/>
+
+
+        <menuitem name="Analyse" id="kzm_instance_analyse" parent="kzm_instance_request.menu_root"
+                  groups="kzm_instance_request.group_instance_user"
+                  action="kzm_instance_request_action_window_all_graph"/>
+
+        <menuitem name="Configuration" id="kzm_instance_configuration" parent="kzm_instance_request.menu_root"
+                  groups="kzm_instance_request.group_instance_administrator"
+                  action="kzm_instance_request_action_window"/>
+
+        <!-- <menuitem name="Server to list" id="kzm_instance_request" parent="kzm_instance_request.menu_2"
+                   action="kzm_instance_request.action_server"/>
+     -->
+    </data>
+</odoo>

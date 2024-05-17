@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_kzm_instance_request,kzm_instance_request,model_kzm_instance_request,kzm_instance_request.group_instance_manager,1,1,1,1
+access_odoo_version,odoo_version,model_odoo_version,kzm_instance_request.group_instance_manager,1,1,1,1
+access_perimeter,perimeter,model_perimeter,kzm_instance_request.group_instance_manager,1,1,1,1
+access_hr_employee,hr_employee,model_hr_employee,kzm_instance_request.group_instance_manager,1,1,1,1
+access_create_instance_wizard,create_instance_wizard,model_create_instance_wizard,kzm_instance_request.group_instance_manager,1,1,1,1
+access2_kzm_instance_request,kzm_instance_request2,model_kzm_instance_request,kzm_instance_request.group_instance_user,1,1,1,0
+access2_odoo_version,odoo_version2,model_odoo_version,kzm_instance_request.group_instance_user,1,0,0,0
+access2_perimeter,perimeter2,model_perimeter,kzm_instance_request.group_instance_user,1,0,0,0
+access2_hr_employee,hr_employee2,model_hr_employee,kzm_instance_request.group_instance_user,1,0,0,0
+access2_create_instance_wizard,create_instance_wizard2,model_create_instance_wizard,kzm_instance_request.group_instance_user,1,1,1,1
+

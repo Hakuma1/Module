@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="digit_account_view_inherited">
+            <field name="name">Start declaration payment deadline</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@data-key='account']" position="inside">
+                    <h2>Declaration payment</h2>
+                    <div class="row mt16 o_settings_container" id="start_declaration_payment_deadline">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <label for="start_declaration_payment_deadline"/>
+                                <field name="start_declaration_payment_deadline"/>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_chatbot" model="ir.actions.client">
+        <field name="name">GPT-3 Chatbot</field>
+        <field name="tag">gpt3_chatbot.chatbot</field>
+    </record>
+    <menuitem id="menu_chatbot"
+              name="GPT-3 Chatbot" parent="base.menu_administration" action="action_chatbot"
+              sequence="100"/>
+</odoo>
