@@ -49,9 +49,7 @@
     ],
     "assets": {
         "web.assets_backend": [
-            "kzm_instance_request/static/src/js/widget_one.js",
-            "kzm_instance_request/static/src/js/widget_two.js",
-            "kzm_instance_request/static/src/xml/widget_one_template.xml",
+
         ],
     },
 }

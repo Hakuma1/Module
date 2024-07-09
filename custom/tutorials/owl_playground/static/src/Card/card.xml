@@ -2,7 +2,7 @@
 <templates xml:space="preserve">
     <t t-name="owl_playground.card" owl="1">
         <div class="card mt-2" style="width: 18rem; justify-content: center;">
-            <img src="..." class="card-img-top" alt="..."/>
+            <img src="/owl_playground/static/src/images/task.jpeg" class="card-img-top" alt="Task image"/>
             <div class="card-body">
                 <t t-if="props.slots.title">
                     <h5 class="card-title">

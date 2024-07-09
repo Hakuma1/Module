@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="PaymentScreenPaymentLines" t-inherit="point_of_sale.PaymentScreenPaymentLines" t-inherit-mode="extension"
+       owl="1">
+        <xpath expr="//t[@t-if='line.selected']//div[hasclass('payment-name')]//t[@t-esc='line.payment_method.name']" position="after">
+            <t t-if="line.payment_method.tax_id[1]">
+                <br/>
+                <br/>
+                <t t-esc="line.payment_method.tax_id[1]"/>
+            </t>
+        </xpath>
+        <xpath expr="//t[@t-if='line.selected']//div[hasclass('payment-amount')]//t[@t-else='']" position="after">
+            <t t-if="line.payment_method.tax_id[1]">
+                <br/>
+                <br/>
+                <t t-esc="formatLineStampDuties(line)"/>
+            </t>
+        </xpath>
+        <xpath expr="//t[@t-else='']//div[hasclass('payment-name')]//t[@t-esc='line.payment_method.name']" position="after">
+            <t t-if="line.payment_method.tax_id[1]">
+                <br/>
+                <br/>
+                <t t-esc="line.payment_method.tax_id[1]"/>
+            </t>
+        </xpath>
+        <xpath expr="//t[@t-else='']//div[hasclass('payment-amount')]//t[@t-else='']" position="after">
+            <t t-if="line.payment_method.tax_id[1]">
+                <br/>
+                <br/>
+                <t t-esc="formatLineStampDuties(line)"/>
+            </t>
+        </xpath>
+        <xpath expr="//t[@t-if='line.selected']//div[hasclass('payment-amount')]//t[1]//t" position="replace">
+            <t t-esc="env.pos.format_currency_no_symbol(line.get_amount_before_stamp_duties())" />
+        </xpath>
+        <xpath expr="//t[@t-else='']//div[hasclass('payment-amount')]//t[1]//t" position="replace">
+            <t t-esc="env.pos.format_currency_no_symbol(line.get_amount_before_stamp_duties())" />
+        </xpath>
+        <xpath expr="//t[@t-if='line.selected']//div[hasclass('payment-amount')]//t[2]//t" position="replace">
+            <t t-esc="formatLineAmountStampDuties(line)" />
+        </xpath>
+        <xpath expr="//t[@t-else='']//div[hasclass('payment-amount')]//t[2]//t" position="replace">
+            <t t-esc="formatLineAmountStampDuties(line)" />
+        </xpath>
+    </t>
+
+</templates>

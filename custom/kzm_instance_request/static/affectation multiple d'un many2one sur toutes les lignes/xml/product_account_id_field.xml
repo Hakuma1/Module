@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+    <t t-name="inapco_base.AutoCompleteInapco" t-inherit="web.AutoComplete" t-inherit-mode="primary" owl="1">
+    </t>
+
+    <t t-name="inapco_base.Many2XAutocompleteInapco" owl="1">
+        <div class="o_input_dropdown" t-ref="autocomplete_container">
+        <input t-if="env.isSmall"
+               type="text"
+               t-att-id="props.id"
+               class="o_input"
+               readonly=""
+               autocomplete="off"
+               t-att-placeholder="this.props.placeholder"
+               t-att-value="this.props.value"
+               t-on-click="onSearchMore"
+               t-on-barcode-search="onBarcodeSearch"
+        />
+        <AutoCompleteInapco t-else=""
+                            value="this.props.value"
+                            id="this.props.id"
+                            placeholder="this.props.placeholder"
+                            sources="sources"
+                            autoSelect="this.props.autoSelect"
+                            onSelect.bind="onSelect"
+                            onInput.bind="onInput"
+                            onChange.bind="onChange"
+        />
+        <a role="button" class="o_dropdown_button" draggable="false"/>
+    </div>
+    </t>
+
+    <t t-name="inapco_base.ProductAccountField" t-inherit="web.Many2OneField" t-inherit-mode="primary" owl="1">
+        <xpath expr="//Many2XAutocomplete" position="replace">
+            <Many2XAutocompleteInapco t-props="Many2XAutocompleteProps"/>
+        </xpath>
+    </t>
+</templates>
