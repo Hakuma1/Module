@@ -131,6 +131,7 @@ class KzmInstanceRequest(models.Model):
         result_2 = self.env['kzm.instance.request'].search([('id', '=', 3)], limit=1)
         combinaison = result_1 + result_2
         print("combinaison", combinaison)
+
     def _get_average_cost(self):
         for record in self:
             grouped_result = record.read_group([('perimeters_count', '!=', False)], ['odoo_id', 'perimeters_count:avg'],

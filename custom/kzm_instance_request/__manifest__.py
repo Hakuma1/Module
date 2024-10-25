@@ -17,7 +17,7 @@
     'version': '16.0.1.0.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'mail', 'portal', 'contacts', 'sale_management', 'hr', 'sale'],
+    'depends': ['base', 'mail', 'iot', 'portal', 'contacts', 'sale_management', 'hr', 'sale'],
 
     # always loaded
     'data': [
@@ -49,7 +49,7 @@
     ],
     "assets": {
         "web.assets_backend": [
-
+            'kzm_instance_request/static/src/js/scan.js',
         ],
     },
 }

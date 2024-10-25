@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_ocr_document_form" model="ir.ui.view">
+            <field name="name">ocr.document.form</field>
+            <field name="model">ocr.document</field>
+            <field name="arch" type="xml">
+                <form string="Document OCR">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="document" widget="binary" filename="name"/>
+                            <field name="ocr_text" readonly="1"/>
+                        </group>
+                        <footer>
+                            <button name="extract_text" type="object" string="Extract Text" class="btn-primary"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_ocr_document" model="ir.actions.act_window">
+            <field name="name">OCR Documents</field>
+            <field name="res_model">ocr.document</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p>
+                    Créez un nouveau document et téléchargez un fichier PDF ou une image pour extraire du texte.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_ocr_document" name="OCR Documents" action="action_ocr_document"/>
+    </data>
+</odoo>
+

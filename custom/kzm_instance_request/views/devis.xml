@@ -2,6 +2,28 @@
 <odoo>
     <data>
 
+        <record id="view_move_form" model="ir.ui.view">
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="action_call_js" type="object" string="Scan" class="oe_highlight"/>
+                </xpath>
+                <field name="partner_id" position="after">
+                    <field name="scanned_file" filename="filename"/>
+                </field>
+
+                <xpath expr="//notebook" position="inside">
+                    <page string="IOT Config">
+                        <group>
+                            <field name="iot_id"/>
+                            <field name="device_id" domain="[('iot_id', '=', iot_id)]"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
         <!-- Search view -->
         <record model="ir.ui.view" id="quotation_search_view">
             <field name="name">Quotation search</field>
